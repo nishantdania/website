@@ -190,15 +190,6 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-/* Internal links - subtle */
-a:not([href^="http"]):not([href^="mailto"]) {
-  color: var(--c-fg);
-}
-
-a:not([href^="http"]):not([href^="mailto"]):hover {
-  color: var(--c-accent);
-}
-
 /* External links indicator */
 a[href^="http"]::after {
   content: var(--link-external-indicator);
@@ -238,12 +229,9 @@ main > ul > li {
 main > ul > li > a {
   font-family: var(--font-ui);
   font-weight: 500;
-  text-decoration: none;
-  color: var(--c-fg);
 }
 
 main > ul > li > a:hover {
-  color: var(--c-accent);
   text-decoration: underline;
 }
 
