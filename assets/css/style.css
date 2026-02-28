@@ -100,8 +100,6 @@ nav a[rel="author"] {
   font-size: var(--text-md);
   font-weight: 600;
   letter-spacing: var(--letter-spacing-tight);
-  text-decoration: none;
-  color: var(--c-fg);
 }
 
 nav > div {
@@ -111,17 +109,11 @@ nav > div {
 
 nav > div a {
   font-size: var(--text-sm);
-  text-decoration: none;
-  color: var(--c-fg-muted);
-}
-
-nav > div a:hover {
-  color: var(--c-fg);
 }
 
 /* Current page indicator */
 nav > div a[aria-current="page"] {
-  color: var(--c-fg);
+  text-decoration: none;
 }
 
 /* ========================================
@@ -199,15 +191,6 @@ a[href^="http"]::after {
   vertical-align: super;
   opacity: 0.6;
   text-decoration: none;
-}
-
-/* Navigation links reset */
-nav a {
-  color: inherit;
-}
-
-nav a:hover {
-  color: var(--c-fg);
 }
 
 /* ========================================
