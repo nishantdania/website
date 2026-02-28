@@ -7,6 +7,16 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     {% feed_meta %}
     {% seo %}
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          {
+            "where": { "href_matches": "/*" },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <nav>
