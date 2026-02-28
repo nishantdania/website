@@ -1,0 +1,269 @@
+/* Minimal reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* API: Theme variables */
+:root {
+  /* Colors */
+  --c-fg: #1a1a1a;
+  --c-fg-muted: #666;
+  --c-accent: #2563eb;
+  --c-accent-hover: #1d4ed8;
+  --c-bg: #fff;
+  --c-border: #ddd;
+  
+  /* Fonts: Serif for reading, Sans for UI */
+  --font-text: Georgia, "Times New Roman", serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Monaco, monospace;
+  
+  /* Scale: Compact */
+  --text-base: 1rem;
+  --text-sm: 0.8125rem;
+  --text-md: 1.0625rem;
+  
+  /* Spacing: Tight */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  
+  /* Measure: Narrow for speed-reading */
+  --measure: 60ch;
+  
+  /* Leading: Tight */
+  --leading-tight: 1.25;
+  --leading-base: 1.5;
+}
+
+/* Base */
+html {
+  font-size: var(--text-base);
+}
+
+body {
+  font-family: var(--font-text);
+  line-height: var(--leading-base);
+  color: var(--c-fg);
+  background: var(--c-bg);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+/* UI Elements: Sans-serif */
+header, nav, time, figcaption, footer, 
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-ui);
+}
+
+/* Headings: Compact, tight */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+/* Content headings - h1 in content equals h2 visually since article title is the real h1 */
+article h1 { font-size: 1.125rem; }
+h2 { font-size: 1.0625rem; }
+h3 { font-size: 1rem; }
+h4 { font-size: 0.9375rem; }
+
+h1, h2, h3, h4 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
+h1:first-child, h2:first-child {
+  margin-top: 0;
+}
+
+/* Paragraphs: Tight */
+p {
+  margin-bottom: var(--space-sm);
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Lists: Compact */
+ul, ol {
+  margin-bottom: var(--space-sm);
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Links: Minimal */
+a {
+  color: var(--c-fg);
+  text-decoration: underline;
+  text-underline-offset: 0.1em;
+}
+
+a:hover {
+  color: var(--c-accent);
+}
+
+/* Site Header: Clean line */
+body > header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--c-border);
+}
+
+body > header h1 {
+  font-size: var(--text-md);
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+body > header a {
+  text-decoration: none;
+}
+
+/* Page titles: Inline style */
+body > header + header h2,
+main > header h2 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--c-fg-muted);
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* Post list: Dense */
+main > ul {
+  list-style: none;
+  padding: 0;
+}
+
+main > ul > li {
+  margin-bottom: var(--space-xs);
+}
+
+main > ul > li article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-sm);
+  align-items: baseline;
+}
+
+main > ul > li article a {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+main > ul > li article a:hover {
+  text-decoration: underline;
+}
+
+time {
+  font-size: var(--text-sm);
+  color: var(--c-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Article post: Tight header */
+article > header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--c-border);
+}
+
+article > header h1 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-xs) 0;
+  letter-spacing: -0.025em;
+}
+
+article > header p {
+  margin: 0;
+}
+
+article > header time {
+  font-size: var(--text-sm);
+  color: var(--c-fg-muted);
+}
+
+/* Figures: Inline */
+figure {
+  margin: var(--space-md) 0;
+}
+
+figcaption {
+  font-size: var(--text-sm);
+  color: var(--c-fg-muted);
+  margin-top: var(--space-xs);
+}
+
+/* Code */
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code {
+  background: #f5f5f5;
+  padding: 0.1em 0.3em;
+}
+
+pre {
+  background: #f5f5f5;
+  padding: var(--space-sm);
+  overflow-x: auto;
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-sm);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Blockquote: Indented */
+blockquote {
+  margin: var(--space-sm) 0 var(--space-sm) 1rem;
+  padding-left: var(--space-sm);
+  border-left: 2px solid var(--c-border);
+  color: var(--c-fg-muted);
+}
+
+blockquote p {
+  margin-bottom: var(--space-xs);
+}
+
+/* HR: Simple */
+hr {
+  border: 0;
+  border-top: 1px solid var(--c-border);
+  margin: var(--space-md) 0;
+}
+
+/* Strong/Em: Keep serif */
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+/* Selection: Subtle */
+::selection {
+  background: #dbeafe;
+}
