@@ -268,9 +268,34 @@ hr {
 }
 
 /* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: var(--border-width) solid var(--c-border);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--c-fg-muted);
+  text-align: right;
+}
+
+footer p {
+  margin-bottom: var(--space-xs);
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
    PRINT STYLES
    ======================================== */
 @media print {
+  footer {
+    display: none;
+  }
+
   nav {
     display: none;
   }

@@ -29,5 +29,10 @@
     <main>
       {{ content }}
     </main>
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} by Nishant Dania</p>
+      <p>Contact me via <a href="mailto:{{ site.email }}">email</a></p>
+      <p>Subscribe via <a href="{{ site.baseurl }}/feed.xml" type="application/atom+xml">RSS</a></p>
+    </footer>
   </body>
 </html>
