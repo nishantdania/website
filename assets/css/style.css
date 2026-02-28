@@ -104,24 +104,23 @@ nav a[rel="author"] {
   color: var(--c-fg);
 }
 
-.nav-links {
+nav > div {
   display: flex;
   gap: var(--space-md);
 }
 
-.nav-links a {
+nav > div a {
   font-size: var(--text-sm);
   text-decoration: none;
   color: var(--c-fg-muted);
 }
 
-.nav-links a:hover {
+nav > div a:hover {
   color: var(--c-fg);
 }
 
 /* Current page indicator */
-.nav-links a[aria-current="page"],
-.nav-links a:hover {
+nav > div a[aria-current="page"] {
   color: var(--c-fg);
 }
 
@@ -153,9 +152,7 @@ h1, h2, h3, h4 {
   margin-bottom: var(--space-xs);
 }
 
-h1:first-child, h2:first-child {
-  margin-top: 0;
-}
+
 
 /* Paragraphs */
 p {
@@ -225,12 +222,12 @@ nav a:hover {
 /* ========================================
    POST LIST (Blog page)
    ======================================== */
-.post-list {
+main > ul {
   list-style: none;
   padding: 0;
 }
 
-.post-list li {
+main > ul > li {
   display: flex;
   flex-wrap: wrap;
   gap: 0 var(--space-sm);
@@ -238,19 +235,19 @@ nav a:hover {
   margin-bottom: var(--space-xs);
 }
 
-.post-list a {
+main > ul > li > a {
   font-family: var(--font-ui);
   font-weight: 500;
   text-decoration: none;
   color: var(--c-fg);
 }
 
-.post-list a:hover {
+main > ul > li > a:hover {
   color: var(--c-accent);
   text-decoration: underline;
 }
 
-.post-list time {
+main > ul time {
   font-size: var(--text-sm);
   color: var(--c-fg-muted);
   font-variant-numeric: tabular-nums;
@@ -382,8 +379,7 @@ em {
    PRINT STYLES
    ======================================== */
 @media print {
-  nav,
-  .nav-links {
+  nav {
     display: none;
   }
   

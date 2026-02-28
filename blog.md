@@ -3,7 +3,7 @@ layout: default
 title: "Blog"
 ---
 
-<ul class="post-list">
+<ul>
   {% for post in site.posts %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
