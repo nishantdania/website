@@ -198,9 +198,9 @@ main > ul {
 }
 
 main > ul > li {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 var(--space-sm);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
   align-items: baseline;
   margin-bottom: var(--space-xs);
 }
@@ -217,6 +217,7 @@ main > ul time {
   font-size: var(--text-sm);
   color: var(--c-fg-muted);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 /* ========================================
