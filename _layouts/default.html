@@ -9,9 +9,15 @@
     {% seo %}
   </head>
   <body>
-    <header>
-      <h1><a href="/">Nishant Dania</a></h1>
-    </header>
-    {{ content }}
+    <nav>
+      <a href="/" rel="author">Nishant Dania</a>
+      <div class="nav-links">
+        <a href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>About</a>
+        <a href="/blog"{% if page.url contains "/blog" %} aria-current="page"{% endif %}>Blog</a>
+      </div>
+    </nav>
+    <main>
+      {{ content }}
+    </main>
   </body>
 </html>

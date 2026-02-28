@@ -3,15 +3,11 @@ layout: default
 title: "Blog"
 ---
 
-<ul>
+<ul class="post-list">
   {% for post in site.posts %}
     <li>
-      <article>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
-          {{ post.date | date: "%Y-%m-%d" }}
-        </time>
-      </article>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y-%m-%d" }}</time>
     </li>
   {% endfor %}
 </ul>

@@ -10,7 +10,10 @@ img, picture, video, canvas, svg {
   max-width: 100%;
 }
 
-/* API: Theme variables */
+/* ========================================
+   API: THEME VARIABLES
+   Change these to customize the entire site
+   ======================================== */
 :root {
   /* Colors */
   --c-fg: #1a1a1a;
@@ -18,33 +21,49 @@ img, picture, video, canvas, svg {
   --c-accent: #2563eb;
   --c-accent-hover: #1d4ed8;
   --c-bg: #fff;
+  --c-bg-secondary: #f5f5f5;
   --c-border: #ddd;
+  --c-selection: #dbeafe;
   
-  /* Fonts: Serif for reading, Sans for UI */
+  /* Fonts */
   --font-text: Georgia, "Times New Roman", serif;
   --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "SF Mono", Monaco, monospace;
   
-  /* Scale: Compact */
-  --text-base: 1rem;
+  /* Type Scale */
+  --text-xs: 0.75rem;
   --text-sm: 0.8125rem;
+  --text-base: 1rem;
   --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
   
-  /* Spacing: Tight */
+  /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
   
-  /* Measure: Narrow for speed-reading */
+  /* Layout */
   --measure: 60ch;
+  --border-width: 1px;
+  --border-width-thick: 2px;
   
-  /* Leading: Tight */
+  /* Typography */
   --leading-tight: 1.25;
   --leading-base: 1.5;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-tighter: -0.025em;
+  --letter-spacing-loose: 0.05em;
+  
+  /* Links */
+  --link-underline-offset: 0.1em;
 }
 
-/* Base */
+/* ========================================
+   BASE STYLES
+   ======================================== */
 html {
   font-size: var(--text-base);
 }
@@ -59,24 +78,70 @@ body {
   padding: var(--space-md);
 }
 
-/* UI Elements: Sans-serif */
-header, nav, time, figcaption, footer, 
-h1, h2, h3, h4, h5, h6 {
+/* ========================================
+   NAVIGATION
+   ======================================== */
+nav {
+  font-family: var(--font-ui);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: var(--border-width) solid var(--c-border);
+}
+
+nav a[rel="author"] {
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-tight);
+  text-decoration: none;
+  color: var(--c-fg);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: var(--c-fg-muted);
+}
+
+.nav-links a:hover {
+  color: var(--c-fg);
+}
+
+/* Current page indicator */
+.nav-links a[aria-current="page"],
+.nav-links a:hover {
+  color: var(--c-fg);
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+/* UI Elements use sans-serif */
+header, time, figcaption, h1, h2, h3, h4 {
   font-family: var(--font-ui);
 }
 
-/* Headings: Compact, tight */
+/* Headings */
 h1, h2, h3, h4 {
   font-weight: 600;
   line-height: var(--leading-tight);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-tight);
 }
 
-/* Content headings - h1 in content equals h2 visually since article title is the real h1 */
-article h1 { font-size: 1.125rem; }
-h2 { font-size: 1.0625rem; }
-h3 { font-size: 1rem; }
-h4 { font-size: 0.9375rem; }
+/* Content headings - article content h1 equals h2 visually 
+   since article header h1 is the real title */
+.content h1 { font-size: var(--text-lg); }
+h2 { font-size: var(--text-md); }
+h3 { font-size: var(--text-base); }
+h4 { font-size: var(--text-sm); }
 
 h1, h2, h3, h4 {
   margin-top: var(--space-lg);
@@ -87,112 +152,121 @@ h1:first-child, h2:first-child {
   margin-top: 0;
 }
 
-/* Paragraphs: Tight */
+/* Paragraphs */
 p {
   margin-bottom: var(--space-sm);
   text-align: justify;
   hyphens: auto;
 }
 
-/* Lists: Compact */
+/* Lists */
 ul, ol {
   margin-bottom: var(--space-sm);
-  padding-left: 1.25rem;
+  padding-left: var(--space-md);
 }
 
 li {
   margin-bottom: var(--space-xs);
 }
 
-/* Links: Minimal */
+/* ========================================
+   LINKS
+   ======================================== */
 a {
-  color: var(--c-fg);
+  color: var(--c-accent);
   text-decoration: underline;
-  text-underline-offset: 0.1em;
+  text-underline-offset: var(--link-underline-offset);
 }
 
 a:hover {
+  color: var(--c-accent-hover);
+}
+
+/* Internal links (relative paths) - subtle */
+a[href^="/"],
+a[href^="./"],
+a[href^="../"],
+a:not([href^="http"]):not([href^="mailto"]) {
+  color: var(--c-fg);
+}
+
+a[href^="/"]:hover,
+a[href^="./"]:hover,
+a[href^="../"]:hover,
+a:not([href^="http"]):not([href^="mailto"]):hover {
   color: var(--c-accent);
 }
 
-/* Site Header: Clean line */
-body > header {
-  margin-bottom: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--c-border);
-}
-
-body > header h1 {
-  font-size: var(--text-md);
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-body > header a {
+/* External links indicator */
+a[href^="http"]::after {
+  content: "→";
+  display: inline-block;
+  font-size: var(--text-xs);
+  margin-left: 0.2em;
+  vertical-align: super;
+  opacity: 0.6;
   text-decoration: none;
 }
 
-/* Page titles: Inline style */
-body > header + header h2,
-main > header h2 {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--c-fg-muted);
-  margin: 0 0 var(--space-md) 0;
+/* Navigation links reset */
+nav a,
+nav a[href^="/"] {
+  color: inherit;
 }
 
-/* Post list: Dense */
-main > ul {
+nav a:hover,
+nav a[href^="/"]:hover {
+  color: var(--c-fg);
+}
+
+/* ========================================
+   POST LIST (Blog page)
+   ======================================== */
+.post-list {
   list-style: none;
   padding: 0;
 }
 
-main > ul > li {
-  margin-bottom: var(--space-xs);
-}
-
-main > ul > li article {
+.post-list li {
   display: flex;
   flex-wrap: wrap;
   gap: 0 var(--space-sm);
   align-items: baseline;
+  margin-bottom: var(--space-xs);
 }
 
-main > ul > li article a {
+.post-list a {
   font-family: var(--font-ui);
   font-weight: 500;
   text-decoration: none;
+  color: var(--c-fg);
 }
 
-main > ul > li article a:hover {
+.post-list a:hover {
+  color: var(--c-accent);
   text-decoration: underline;
 }
 
-time {
+.post-list time {
   font-size: var(--text-sm);
   color: var(--c-fg-muted);
   font-variant-numeric: tabular-nums;
 }
 
-/* Article post: Tight header */
+/* ========================================
+   ARTICLE (Post page)
+   ======================================== */
 article > header {
   margin-bottom: var(--space-lg);
   padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--c-border);
+  border-bottom: var(--border-width) solid var(--c-border);
 }
 
 article > header h1 {
-  font-size: 1.375rem;
+  font-size: var(--text-xl);
   font-weight: 700;
   margin: 0 0 var(--space-xs) 0;
-  letter-spacing: -0.025em;
-}
-
-article > header p {
-  margin: 0;
+  letter-spacing: var(--letter-spacing-tighter);
 }
 
 article > header time {
@@ -200,30 +274,35 @@ article > header time {
   color: var(--c-fg-muted);
 }
 
-/* Figures: Inline */
+/* ========================================
+   FIGURES
+   ======================================== */
 figure {
   margin: var(--space-md) 0;
 }
 
 figcaption {
+  font-family: var(--font-ui);
   font-size: var(--text-sm);
   color: var(--c-fg-muted);
   margin-top: var(--space-xs);
 }
 
-/* Code */
+/* ========================================
+   CODE
+   ======================================== */
 code, pre {
   font-family: var(--font-mono);
   font-size: 0.875em;
 }
 
 code {
-  background: #f5f5f5;
+  background: var(--c-bg-secondary);
   padding: 0.1em 0.3em;
 }
 
 pre {
-  background: #f5f5f5;
+  background: var(--c-bg-secondary);
   padding: var(--space-sm);
   overflow-x: auto;
   line-height: var(--leading-tight);
@@ -235,11 +314,13 @@ pre code {
   padding: 0;
 }
 
-/* Blockquote: Indented */
+/* ========================================
+   BLOCKQUOTE
+   ======================================== */
 blockquote {
-  margin: var(--space-sm) 0 var(--space-sm) 1rem;
+  margin: var(--space-sm) 0 var(--space-sm) var(--space-md);
   padding-left: var(--space-sm);
-  border-left: 2px solid var(--c-border);
+  border-left: var(--border-width-thick) solid var(--c-border);
   color: var(--c-fg-muted);
 }
 
@@ -247,14 +328,18 @@ blockquote p {
   margin-bottom: var(--space-xs);
 }
 
-/* HR: Simple */
+/* ========================================
+   HORIZONTAL RULE
+   ======================================== */
 hr {
   border: 0;
-  border-top: 1px solid var(--c-border);
+  border-top: var(--border-width) solid var(--c-border);
   margin: var(--space-md) 0;
 }
 
-/* Strong/Em: Keep serif */
+/* ========================================
+   EMPHASIS
+   ======================================== */
 strong {
   font-weight: 600;
 }
@@ -263,7 +348,9 @@ em {
   font-style: italic;
 }
 
-/* Selection: Subtle */
+/* ========================================
+   SELECTION
+   ======================================== */
 ::selection {
-  background: #dbeafe;
+  background: var(--c-selection);
 }
