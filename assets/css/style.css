@@ -60,7 +60,6 @@ img, picture, video, canvas, svg {
   
   /* Links */
   --link-underline-offset: 0.1em;
-  --link-external-indicator: "→";
 }
 
 /* ========================================
@@ -156,17 +155,6 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--c-accent);
   outline-offset: 2px;
-}
-
-/* External links indicator */
-a[href^="http"]::after {
-  content: var(--link-external-indicator);
-  display: inline-block;
-  font-size: var(--text-xs);
-  margin-left: 0.2em;
-  vertical-align: super;
-  opacity: 0.6;
-  text-decoration: none;
 }
 
 /* ========================================
