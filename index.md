@@ -12,7 +12,7 @@ title: "About Me"
 
   <p>
     I moved to Singapore in November 2017 to work at
-    <a target="_blank" rel="noopener noreferrer" href="https://www.tradegecko.com/">TradeGecko</a>
+    <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20190516205100/https://www.tradegecko.com/">TradeGecko</a>
     as a software developer where I specialize in frontend development and
     occasionally work on backend as well. Before this gig, I was working at
     <a target="_blank" rel="noopener noreferrer" href="https://www.flipkart.com/">Flipkart</a>
