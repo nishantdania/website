@@ -22,5 +22,33 @@
         "url": "https://craftinginterpreters.com/"
       }
     ]
+  },
+  {
+    "title": "Head First Design Patterns",
+    "author": "Bert Bates, Kathy Sierra, Eric Freeman and Elisabeth Robson",
+    "links": [
+      {
+        "type": "goodreads",
+        "url": "https://www.goodreads.com/book/show/58128.Head_First_Design_Patterns"
+      },
+      {
+        "type": "notes",
+        "url": "/posts/2019/01/27/head-first-design-patterns"
+      }
+    ]
+  },
+  {
+    "title": "Software Estimation: Demystifying the Black Art",
+    "author": "Steve McConnell",
+    "links": [
+      {
+        "type": "goodreads",
+        "url": "https://www.goodreads.com/book/show/93891.Software_Estimation"
+      },
+      {
+        "type": "notes",
+        "url": "/posts/2019/01/01/software-estimation-demystifying-the-black-art"
+      }
+    ]
   }
 ]

@@ -10,8 +10,12 @@ title: "Bookshelf"
       <strong>{{ book.title }}</strong> - {{ book.author }}
       {% if book.links %}
       <div>
-      {% assign sorted_links = book.links | sort: 'type' %}
-      {% for link in sorted_links %}
+      {% assign notes_links = book.links | where: 'type', 'notes' %}
+      {% assign other_links = book.links | where_exp: 'link', 'link.type != "notes"' %}
+      {% for link in notes_links %}
+        <a href="{{ link.url }}" class="notes-link">[{{ link.type }}]</a>{% unless forloop.last and other_links.size == 0 %} {% endunless %}
+      {% endfor %}
+      {% for link in other_links %}
         <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">[{{ link.type }}]</a>{% unless forloop.last %} {% endunless %}
       {% endfor %}
       </div>

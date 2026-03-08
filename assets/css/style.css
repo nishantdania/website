@@ -175,6 +175,21 @@ main > ul time {
   white-space: nowrap;
 }
 
+main > ul .post-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+main > ul .post-tag {
+  font-size: var(--text-xs);
+  color: var(--c-fg-muted);
+  background: var(--c-bg-secondary);
+  padding: 0.1em 0.5em;
+  border-radius: 999px;
+}
+
 /* ========================================
    BOOKSHELF LIST
    ======================================== */
@@ -189,6 +204,14 @@ main > ul time {
 
 .bookshelf-list > li > div {
   margin-top: var(--space-xs);
+}
+
+.bookshelf-list .notes-link {
+  color: #16a34a;
+}
+
+.bookshelf-list .notes-link:hover {
+  color: #15803d;
 }
 
 /* ========================================
