@@ -176,6 +176,22 @@ main > ul time {
 }
 
 /* ========================================
+   BOOKSHELF LIST
+   ======================================== */
+.bookshelf-list {
+  padding: 0;
+}
+
+.bookshelf-list > li {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.bookshelf-list > li > div {
+  margin-top: var(--space-xs);
+}
+
+/* ========================================
    ARTICLE (Post page)
    ======================================== */
 article > header {

@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Why We Sleep",
+    "author": "Matthew Walker",
+    "links": [
+      {
+        "type": "goodreads",
+        "url": "https://www.goodreads.com/book/show/36294636-why-we-sleep"
+      }
+    ]
+  },
+  {
+    "title": "Crafting Interpreters",
+    "author": "Robert Nystrom",
+    "links": [
+      {
+        "type": "goodreads",
+        "url": "https://www.goodreads.com/book/show/58661468-crafting-interpreters"
+      },
+      {
+        "type": "website",
+        "url": "https://craftinginterpreters.com/"
+      }
+    ]
+  }
+]
