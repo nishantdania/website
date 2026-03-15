@@ -6,7 +6,7 @@ title: "Blog"
 <ul>
   {% for post in site.posts %}
     <li>
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <time class="post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       <div class="post-content">
         <a href="{{ post.url }}">{{ post.title }}</a>
         {% if post.tags %}

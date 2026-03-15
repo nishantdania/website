@@ -28,16 +28,16 @@ img, picture, video, canvas, svg {
   /* Fonts */
   --font-sans: "Adwaita Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-serif: Georgia, "Times New Roman", serif;
-  --font-text: var(--font-sans);
+  --font-text: var(--font-serif);
   --font-mono: "SF Mono", Monaco, monospace;
   
   /* Type Scale */
   --text-xs: 0.75rem;
-  --text-sm: 0.8125rem;
-  --text-base: 1rem;
-  --text-md: 1.0625rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.375rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.125rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
   --text-code: 0.875em;
   
   /* Spacing */
@@ -54,7 +54,7 @@ img, picture, video, canvas, svg {
   
   /* Typography */
   --leading-tight: 1.25;
-  --leading-base: 1.5;
+  --leading-base: 1.65;
   --letter-spacing-tight: -0.02em;
   --letter-spacing-tighter: -0.025em;
   --letter-spacing-loose: 0.05em;
@@ -67,7 +67,7 @@ img, picture, video, canvas, svg {
    BASE STYLES
    ======================================== */
 html {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
 }
 
 body {
@@ -78,12 +78,16 @@ body {
   max-width: var(--measure);
   margin: 0 auto;
   padding: var(--space-md);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========================================
    NAVIGATION
    ======================================== */
 nav {
+  font-family: var(--font-sans);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -103,35 +107,48 @@ nav > div {
 
 /* Headings */
 h1, h2, h3, h4 {
+  font-family: var(--font-sans);
   font-weight: 600;
   line-height: var(--leading-tight);
   letter-spacing: var(--letter-spacing-tight);
 }
 
-/* Content headings - article content h1 equals h2 visually 
-   since article header h1 is the real title */
-.content h1 { font-size: var(--text-lg); }
-h2 { font-size: var(--text-md); }
-h3 { font-size: var(--text-base); }
-h4 { font-size: var(--text-sm); }
+/* Content headings */
+.content h1 { font-size: var(--text-xl); }
+h2 { font-size: var(--text-lg); }
+h3 { font-size: var(--text-md); }
+h4 { font-size: var(--text-base); }
 
 h1, h2, h3, h4 {
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-xs);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+/* Remove top margin from first heading in content */
+.content h1:first-child,
+.content h2:first-child,
+.content h3:first-child,
+.content h4:first-child {
+  margin-top: 0;
 }
 
 /* Paragraphs */
 p {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 /* Lists */
 ul, ol {
-  margin-bottom: var(--space-sm);
-  padding-left: var(--space-md);
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
 }
 
 li {
+  margin-bottom: var(--space-xs);
+}
+
+li > ul, li > ol {
+  margin-top: var(--space-xs);
   margin-bottom: var(--space-xs);
 }
 
@@ -169,7 +186,9 @@ main > ul > li {
 }
 
 main > ul time {
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
+  font-style: italic;
   color: var(--c-fg-muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -183,6 +202,7 @@ main > ul .post-content {
 }
 
 main > ul .post-tag {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--c-fg-muted);
   background: var(--c-bg-secondary);
@@ -204,6 +224,12 @@ main > ul .post-tag {
 
 .bookshelf-list > li > div {
   margin-top: var(--space-xs);
+}
+
+.bookshelf-list .book-links {
+  margin-top: var(--space-xs);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
 }
 
 .bookshelf-list .notes-link {
@@ -233,12 +259,15 @@ article > header .post-meta {
   gap: var(--space-sm);
 }
 
-article > header time {
+article > header .post-date {
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
+  font-style: italic;
   color: var(--c-fg-muted);
 }
 
 article > header .view-md {
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
 }
 
@@ -261,6 +290,7 @@ figcaption {
 code, pre {
   font-family: var(--font-mono);
   font-size: var(--text-code);
+  font-feature-settings: normal;
 }
 
 code {
@@ -285,14 +315,19 @@ pre code {
    BLOCKQUOTE
    ======================================== */
 blockquote {
-  margin: var(--space-sm) 0 var(--space-sm) var(--space-md);
-  padding-left: var(--space-sm);
-  border-left: var(--border-width-thick) solid var(--c-border);
+  margin: var(--space-lg) 0 var(--space-lg) 0;
+  padding: var(--space-sm) var(--space-md);
+  border-left: var(--border-width-thick) solid var(--c-fg-muted);
   color: var(--c-fg-muted);
+  font-style: italic;
 }
 
 blockquote p {
   margin-bottom: var(--space-xs);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 /* ========================================
@@ -301,7 +336,14 @@ blockquote p {
 hr {
   border: 0;
   border-top: var(--border-width) solid var(--c-border);
-  margin: var(--space-md) 0;
+  margin: var(--space-xl) 0;
+}
+
+/* ========================================
+   TEXT WRAPPING
+   ======================================== */
+p, li {
+  text-wrap: pretty;
 }
 
 /* ========================================
@@ -315,6 +357,7 @@ hr {
    FOOTER
    ======================================== */
 footer {
+  font-family: var(--font-sans);
   margin-top: var(--space-xl);
   padding-top: var(--space-md);
   border-top: var(--border-width) solid var(--c-border);

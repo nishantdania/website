@@ -6,7 +6,7 @@ layout: default
   <header>
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%Y-%m-%d" }}</time>
       {% assign md_url = page.url | append: '.md' %}
       <a href="{{ md_url | replace: '/.md', '.md' }}" class="view-md">[markdown]</a>
     </div>

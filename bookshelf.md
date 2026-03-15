@@ -9,7 +9,7 @@ title: "Bookshelf"
     <li>
       <strong>{{ book.title }}</strong> - {{ book.author }}
       {% if book.links %}
-      <div>
+      <div class="book-links">
       {% assign notes_links = book.links | where: 'type', 'notes' %}
       {% assign other_links = book.links | where_exp: 'link', 'link.type != "notes"' %}
       {% for link in notes_links %}
